@@ -7,6 +7,8 @@ public class Filmarkiv implements FilmarkivADT {
 	public int antall;
 
 	public Filmarkiv() {
+		filmarkiv = new Film[1];
+		antall  = 0;
 	}
 
 	public Filmarkiv(int lengde) {
