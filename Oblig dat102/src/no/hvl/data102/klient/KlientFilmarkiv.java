@@ -7,9 +7,9 @@ import no.hvl.data102.adt.FilmarkivADT;
 public class KlientFilmarkiv { 
 	 
 	 public static void main(String[] args) { 
-	  FilmarkivADT filma = new Filmarkiv();  // new Filmarkiv2(); for kjedet
-	  Meny meny = new Meny(filma); 			 // par problemer med å vise filmer, må se på 
-	  meny.start(); 
+	  FilmarkivADT filma = new Filmarkiv2();  
+	  Meny meny = new Meny(filma); 			
+	  meny.start(); 						 
 	 } 
 	 
 	} 

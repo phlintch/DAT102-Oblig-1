@@ -18,6 +18,7 @@ public class Filmarkiv implements FilmarkivADT {
 
 	@Override
 	public void visFilm(int nr) {
+		System.out.println("test");
 		boolean funnet = false;
 		if (finnes(nr)) {
 		for (int i = 0; i < antall && !funnet; i++) {

@@ -13,11 +13,13 @@ public class Filmarkiv2 implements FilmarkivADT{
 	
 	@Override
 	public void visFilm(int nr) {
-		LinearNode<Film> node = start;  
+		LinearNode<Film> node = start;
+		boolean funnet = false;
 		if (finnes(nr)) {
-			 for (int i = 0; i < antall; i++) {
+			 for (int i = 0; i < antall && !funnet; i++) {
 				 if (node.getElement().getFilmnr() == nr) {
 					 System.out.println(node.getElement().toString());
+					 funnet = true;
 				 } else {
 					 node = node.getNeste();
 				 }
@@ -28,14 +30,17 @@ public class Filmarkiv2 implements FilmarkivADT{
 
 	@Override
 	public void leggTilFilm(Film nyFilm) {
+		
 		LinearNode<Film> Ny = new LinearNode<Film>(); 
 		Ny.setElement(nyFilm);
 		if (antall != 0) {
 		Ny.setNeste(start);
 		start = Ny;
+		
 		} else {
 		start = Ny;
 		start.setNeste(null);
+		
 		}
 		antall++;
 		}
@@ -81,12 +86,12 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 
 	@Override
-	public Film[] soekTittel(String delstreng) {
+	public Film[] soekTittel(String delstreng) { 
 		Film[] funn = new Film[antall];
 		LinearNode<Film> node = start;
 		int passende = 0;
 		for (int i = 0; i < antall; i++) {
-			if (node.getElement().getTittel().toUpperCase() == delstreng.toUpperCase()) {
+			if (node.getElement().getTittel().toUpperCase().contains(delstreng.toUpperCase())) {
 				funn[passende] = node.getElement();
 				passende++;	
 			}
@@ -109,6 +114,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 			if (node.getElement().getSjanger() == sjanger) {
 				teller++;
 			}
+			node = node.getNeste();
 		}
 		return teller;
 	}

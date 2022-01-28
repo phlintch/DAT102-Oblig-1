@@ -94,6 +94,7 @@ public class Tekstgrensesnitt {
 	 public void visFilm(Film film, FilmarkivADT arkiv) { 
 		 int nr = film.getFilmnr();
 		 arkiv.visFilm(nr);
+		 
 	 } 
 	 
 	 // Skrive ut alle Filmer med en spesiell delstreng i tittelen 
